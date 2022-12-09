@@ -1,4 +1,10 @@
-<h1>Welcome to Jenkins class</h1>
-<h1>I LOVE AMMA</h1>
-<h1>i love lovellyvillan </h1>
-<h1>i love india </h1>
+<p>Choose your favorite Web language:</p>
+
+<form>
+  <input type="radio" id="html" name="fav_language" value="HTML">
+  <label for="html">HTML</label><br>
+  <input type="radio" id="css" name="fav_language" value="CSS">
+  <label for="css">CSS</label><br>
+  <input type="radio" id="javascript" name="fav_language" value="JavaScript">
+  <label for="javascript">JavaScript</label>
+</form>
