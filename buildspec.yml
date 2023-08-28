@@ -20,8 +20,3 @@ phases:
   post_build:
     commands:
       - echo "Build completed successfully!"
-
-  deploy:
-    commands:
-      - echo "Starting deployment..."
-      - aws deploy create-deployment --application-name java --deployment-group-name hooo --revision revisionType=S3,S3Location={bucket=codepipeline-ap-south-1-265311929247,key='java/BuildArtif/J3pH7mj,bundleType=zip}
