@@ -1,19 +1,12 @@
 version: 0.0
-resources:
-  - myJavaApp:
-      type: EC2/Instance
-      properties:
-        content: /home/ubuntu
+os: linux
+files:
+  - source: /
+    destination: /usr/local/tomcat/webapps/
 hooks:
-  ApplicationStop:
-    - location: scripts/stop-server.sh
-      timeout: 300
-      runas: codedeployuser
   BeforeInstall:
-    - location: scripts/before-install.sh
-  AfterInstall:
-    - location: scripts/after-install.sh
-  ApplicationStart:
-    - location: scripts/start-server.sh
+    - location: scripts/stop-tomcat.sh
       timeout: 300
-      runas: codedeployuser
+  AfterInstall:
+    - location: scripts/start-tomcat.sh
+      timeout: 300
