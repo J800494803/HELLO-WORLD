@@ -6,11 +6,22 @@ phases:
       java: corretto17
     commands:
       - echo "Installing dependencies..."
+
   pre_build:
     commands:
       - echo "Compiling the Java code..."
-      - mvn clean compile  # Replace with your Maven compile command
+      - mvn clean compile
+
   build:
     commands:
       - echo "Running tests..."
-      - mvn test  # Replace with your Maven test command
+      - mvn test
+
+  post_build:
+    commands:
+      - echo "Build completed successfully!"
+
+  deploy:
+    commands:
+      - echo "Starting deployment..."
+      - aws deploy create-deployment --application-name java --deployment-group-name hooo --revision revisionType=S3,S3Location={bucket=codepipeline-ap-south-1-265311929247,bundleType=zip}
